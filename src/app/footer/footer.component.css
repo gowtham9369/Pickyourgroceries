@@ -1,0 +1,22 @@
+.footer {
+    margin-left: 260px;
+}
+a:hover{
+    text-decoration: none;
+}
+footer.footer-light {
+    background: #FFF;
+}
+footer.footer {
+    padding: .8rem;
+    padding-top: 0.8rem;
+    padding-right: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-left: 0.8rem;
+}
+.footer {
+    left: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

@@ -1,0 +1,134 @@
+<!-- Header -->
+<app-header></app-header>
+<!-- Sidebar Main menu     -->
+<app-mainmenu></app-mainmenu>     
+<!-- Pages -->
+<div class="app-content content">
+  <div class="content-wrapper">
+    <div class="content-header row">
+      <div class="content-header-left col-md-6 col-12 mb-2">
+        <h3 class="content-header-title">Invoice Billing Details</h3>
+        <button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false" class="btn btn-info" [routerLink]="['/Get-All-orders-of-Individual-Merchant']" style="float: left;margin-top: 20px;">Back</button>
+      </div>
+    </div>
+    <div class="content1">
+      <div class="content-body">
+          <section class="card">
+              <div id="invoice-template" class="card-body">
+                <!-- Invoice Company Details -->
+                <div id="invoice-company-details" class="row">
+                  <div class="col-md-6 col-sm-12 text-center text-md-left">
+                    <div class="media">
+                      <img src="assets/logo.png" alt="company logo" class="" style="width:120px; height:12opx;"
+                      />
+                      <div class="media-body">
+                        <ul class="ml-2 px-0 list-unstyled">
+                          <li class="text-bold-800"><b>Shop Name:</b></li>
+                          <li>{{invoiceData.order.shop_name}}</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-12 text-center text-md-right">
+                    <p><b>Order ID</b>: PYG-#{{invoiceData.order.order_id}}</p>
+                    <p><b>Tracking ID</b>:{{invoiceData.order.tracking_id}}</p>
+                  </div>
+                </div>
+                <!-- Invoice Customer Details -->
+                <div id="invoice-customer-details" class="row pt-2">
+                  <div class="col-sm-12 col-md-6 text-center text-md-left">
+                    <p class="text-muted"><span class="heading-add">Shop Address :</span><br>{{invoiceData.order.address}}</p>
+                  </div>
+                  <div class="col-md-6 col-sm-12 text-center text-md-right">
+                    <p>
+                      <span class="heading-add">Order Date :</span>{{invoiceData.order.order_time | date}}</p>
+                   
+                    <p>
+                      <span class="heading-add {{invoiceData.order.order_status_name}}">Order Status:</span>{{invoiceData.order.order_status_name}}</p>
+                  </div>
+                </div>
+                <!-- Invoice Items Details -->
+                <div id="invoice-items-details" class="pt-2">
+                  <div class="row">
+                    <div class="table-responsive col-sm-12">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Item</th>
+                            <th class="text-right">Price</th>
+                            <th class="text-right">KG</th>
+                            <th class="text-right">Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of invoiceData.order.products;index as i">
+                            <th scope="row">{{i+1}}</th>
+                            <td><p>{{item.product_name}}</p></td>
+                            <td class="text-right">£ {{item.price}}</td>
+                            <td class="text-right">{{item.ordered_qty}}{{item.quantification}}</td>
+                            <td class="text-right">£ {{item.total_price}}</td>
+                          </tr>
+                          <!-- <tr>
+                            <th scope="row">2</th>
+                            <td>
+                              <p>Tomato	</p>
+                            </td>
+                            <td class="text-right">$ 25.00 / 1Kg</td>
+                            <td class="text-right">2Kg</td>
+                            <td class="text-right">$ 50.00</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>
+                              <p>Onion</p>
+                            </td>
+                            <td class="text-right">$ 20.00 / 1Kg</td>
+                            <td class="text-right">1Kg</td>
+                            <td class="text-right">$ 20.00</td>
+                          </tr> -->
+                        </tbody>
+                      </table>
+                    </div>
+                  </div><br><br>
+                  <div class="row">
+                      
+                    <div class="col-md-7 col-sm-12 text-center text-md-left">
+                        <div class="row">
+                      <p class="lead">Terms & Condition</p>
+                      <!-- <p>*********************</p> -->
+                  </div>
+                    </div>
+                    <div class="col-md-5 col-sm-12">
+                      <p class="lead"><span class="heading-add">Total Amount</span></p>
+                      <div class="table-responsive">
+                        <table class="table">
+                          <tbody>
+                            <tr>
+                              <td>Sub Total</td>
+                              <td class="text-right">£ {{invoiceData.order.bill_amount-invoiceData.order.taxes}}</td>
+                            </tr>
+                            <tr>
+                              <td>TAX Amount</td>
+                              <td class="text-right">£ {{invoiceData.order.taxes}}</td>
+                            </tr>
+                            <tr>
+                              <td class="text-bold-800"><span class="heading-add">Total</span></td>
+                              <td class="text-bold-800 text-right">£ <span class="heading-add">{{invoiceData.order.bill_amount}}</span></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Invoice Footer --><br><br>
+              </div>
+            </section>
+      </div>
+    </div>
+  <!-- <app-salereportsidebar></app-salereportsidebar> -->
+  </div>
+</div>
+<app-footer></app-footer>

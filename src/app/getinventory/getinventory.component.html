@@ -1,0 +1,133 @@
+
+
+<!-- Header -->
+<app-header></app-header>
+<!-- Sidebar Main menu     -->
+<app-mainmenu></app-mainmenu>     
+<!-- pages    -->     
+<div class="app-content content">
+  <div class="content-wrapper">
+    <div class="content-header row">
+      <div class="content-header-left col-md-6 col-12 mb-2">
+          <h3 style="font-size: 24px!important;">Merchant Name: {{merchantname}}</h3> 
+        <h3 class="content-header-title">Individual Merchant Inventory Details</h3>
+      </div>
+    </div>
+    <div class="content-detached content-right">
+        <section class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-head">
+                <div class="card-header">
+                  <h4 class="card-title">Inventory List</h4>
+                  <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
+                </div>
+              </div>
+              <div class="content-header-left col-md-12 col-12 mb-2">
+                  <button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false" class="btn btn-info" [routerLink]="['/Get-All-orders-of-Individual-Merchant']" style="float: left;margin-top: 20px;">Back</button>
+                <button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" class="btn btn-info" [routerLink]="['/AddInventoryToMerchant']" style="float: right;margin-top: 20px;"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add Inventory </button>
+				<button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" class="btn btn-info" [routerLink]="['/BulkUploadMerchantInventory']" style="float: right;margin-top: 20px;margin-right: 10px;"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Bulk Upload Inventory </button>
+				<button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true" 
+                aria-expanded="false" class="btn btn-info" (click)="DownloadInventory()" style="float: right;margin-top: 20px;margin-right: 10px;"><i class="fa fa-cloud-download" aria-hidden="true"></i> Download Inventory</button>
+
+             </div>
+              <div class="card-content">
+                <div class="card-body">
+                  <!-- Task List table -->
+                  <div class="table-responsive">
+                    <table class="table table-striped" [mfData]="listOfInventory.products" #mf="mfDataTable" [mfRowsOnPage]="10">
+                        <thead>
+                        <tr>
+                            <th style="width: 10%">
+                                <mfDefaultSorter by="name">Product<span class="text-right-float"> <i class="fa fa-filter" aria-hidden="true"></i></span></mfDefaultSorter>
+                            </th>
+                            <th style="width: 10%">
+                                <mfDefaultSorter by="age">Image <span class="text-right-float"> <i class="fa fa-filter" aria-hidden="true"></i></span></mfDefaultSorter>
+                            </th>
+                            <th style="width: 10%">
+                                <mfDefaultSorter by="email">Category<span class="text-right-float"> <i class="fa fa-filter" aria-hidden="true"></i></span></mfDefaultSorter>
+                            </th>
+                            <th style="width: 10%">
+                                <mfDefaultSorter by="city">SKU <span class="text-right-float"> <i class="fa fa-filter" aria-hidden="true"></i></span></mfDefaultSorter>
+                            </th>
+                            <th style="width: 10%">Availability</th>
+                            <th style="width: 10%">
+                              <mfDefaultSorter by="name">Quantification <span class="text-right-float"> <i class="fa fa-filter" aria-hidden="true"></i></span></mfDefaultSorter>
+                          </th>
+                          <th style="width: 10%">
+                              <mfDefaultSorter by="email">Default Price <span class="text-right-float"> <i class="fa fa-filter" aria-hidden="true"></i></span></mfDefaultSorter>
+                          </th>
+                          <th style="width: 10%">
+                              <mfDefaultSorter by="age">Selling Price <span class="text-right-float"> <i class="fa fa-filter" aria-hidden="true"></i></span></mfDefaultSorter>
+                          </th>
+                          <th style="width: 10%">
+                              <mfDefaultSorter by="city">Pyg Price <span class="text-right-float"> <i class="fa fa-filter" aria-hidden="true"></i></span></mfDefaultSorter>
+                          </th>
+                          <th style="width: 10%">
+                            <mfDefaultSorter by="city">Seasonal <span class="text-right-float"> <i class="fa fa-filter" aria-hidden="true"></i></span></mfDefaultSorter>
+                        </th>
+                        <th style="width: 15%">Avail Qty</th>
+                        <th style="width: 5%">
+                          <mfDefaultSorter by="city">Low Stock <span class="text-right-float"> <i class="fa fa-filter" aria-hidden="true"></i></span></mfDefaultSorter>
+                      </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let item of mf.data">
+                            <td>
+                                <div class="media">
+                                    <div class="media-body media-middle">
+                                      <a  class="media-heading">{{item.product_name}}</a>
+                                    </div>
+                                  </div>
+                            </td>
+                            <td ><span class="avatar avatar-sm avatar-online rounded-circle">
+                                <img src="{{item.product_img}}" alt="Image Not Found"><i></i></span>
+                              </td>
+                            <td>
+                                <div class="media">
+                                    <div class="media-body media-middle">
+                                      <a  class="media-heading">{{item.category_name}}</a>
+                                    </div>
+                                  </div>
+                            </td>
+                            <td >{{item.sku}}</td>
+                            <td >{{item.availability}}</td>
+                            <td >{{item.quantification}}</td>
+                            <td >{{item.default_price}}</td>
+                            <td >{{item.selling_price}}</td>
+                            <td >{{item.pyg_price}}</td>
+                            <td >{{item.seasonal}}</td>
+                            <td >{{item.available_qty}}</td>
+                            <td >{{item.low_stock}}</td>
+                            <!-- <td style="width:20%;">    
+                            <span class="dropdown">
+                                <button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                  aria-expanded="false" class="btn btn-info" (click)="getMerchantId(item.merchant_id)" [routerLink]="['/Get-All-orders-of-Individual-Merchant']"><i class="la la-cog"></i>View </button>
+                            </span></td> -->
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="4">
+                                <mfBootstrapPaginator [rowsOnPageSet]="[25,50,100]"></mfBootstrapPaginator>
+                            </td>
+                        </tr>
+                        </tfoot>
+                      </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+   
+    </div>
+    
+  </div>
+</div>
+<app-footer></app-footer>
+

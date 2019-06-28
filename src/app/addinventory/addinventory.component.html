@@ -1,0 +1,103 @@
+<!-- Header -->
+<app-header></app-header>
+<!-- Sidebar Main menu     -->
+<app-mainmenu></app-mainmenu>     
+<!-- pages    -->     
+<div class="app-content content">
+    <div class="container" style="background: #ffffff;padding: 30px 0px 80px 80px;margin: 80px;width:80%;">
+        <div class="row">
+          <h2>Add Inventories to Merchant</h2><br>
+        </div>
+          
+          <div class="row">
+              <div class="col-sm-offset-10 col-sm-10">
+                  <form >
+              <div class="form-group">
+                    <label for="validate-text">1. Select Category</label>
+                <div class="input-group">
+                    <select class="form-control" name="validate-select" id="validate-select" placeholder="Validate Select" required [(ngModel)]="allcat.category_id" (change)="categoriesname(allcat.category_id)">
+                        <option value="">Select Category</option>
+                        <option [value]="cat.categoryId" *ngFor="let cat of categoryCount.categories">{{cat.categoryName}}</option>
+                    </select>
+                </div>
+              </div>
+              <div class="form-group">
+                    <label for="validate-optional">2. Select Product</label>
+                <div class="input-group">
+                    <select class="form-control" name="validate-select" id="validate-select" placeholder="Validate Select" required [(ngModel)]="allcat.product_id" (change)="product(allcat.product_id)">
+                       <option value="">Select Product</option>
+                       <option [value]="prod.product_id" *ngFor="let prod of productsname.products">{{prod.product_name}}</option>
+                   </select>
+                </div>
+              </div>
+              <div class="form-group">
+                    <label for="validate-select">3. Stock Keeping Units(SKU)</label>
+              <div class="input-group">
+                  <input type="number" class="form-control"  value="{{this.individualproductDetails.product.sku}}" name="validate-number" id="validate-number" placeholder="Enter Stock Keeping Unit" [(ngModel)]="allcat.sku" disabled required>
+              </div>
+            </div>
+              <!-- <span>{{this.individualproductDetails.product.sku}}</span> -->
+              <div class="form-group">
+                    <label for="validate-email">4. Available for Stock(Yes/No)</label>
+                <div class="input-group">
+                    <select class="form-control" name="validate-select1" id="validate-select1" placeholder="Validate Select" [(ngModel)]="allcat.available_for_sale" required>
+                        <option value="">Select an Option</option>
+                        <option value="YES">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+              </div>
+                <div class="form-group">
+                    <label for="validate-text1">5. Quantification</label>
+                <div class="input-group">
+                        <input type="text" class="form-control" value="{{this.individualproductDetails.product.quantification}}" name="validate-text1" id="validate-text1" placeholder="Enter Quantification" [(ngModel)]="allcat.quantification" disabled required>
+                </div>
+              </div>
+                  <div class="form-group">
+                    <label for="validate-length">6. Default Price</label>
+                <div class="input-group" >
+                    <input type="number" class="form-control" name="validate-phone1" id="validate-phone1" placeholder="Enter Price" [(ngModel)]="allcat.default_price" required>
+                </div>
+              </div>
+                      <div class="form-group">
+                      <label for="validate-select">7. Selling Price</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" name="validate-number1" id="validate-number1" placeholder="Selling Price" [(ngModel)]="allcat.selling_price" required>
+                </div>
+              </div>
+                    <div class="form-group">
+                    <label for="validate-number">8. PYG Price</label>
+                <div class="input-group" >
+                  <input type="number" class="form-control" name="validate-number1" id="validate-number1" placeholder="PYG Offer Price" [(ngModel)]="allcat.pyg_price" required>
+                </div>
+              </div>
+              <div class="form-group">
+                  <label for="validate-number">9. Seasonal(Yes/No)</label>
+              <div class="input-group">
+                  <select class="form-control" name="validate-select1" id="validate-select1" placeholder="Validate Select"  [(ngModel)]="allcat.seasonal" required>
+                      <option value="">Select an Seasonal</option>
+                      <option value="YES">Yes</option>
+                      <option value="No">No</option>
+                  </select>
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="validate-number">10. Available Quantity</label>
+            <div class="input-group">
+                    <input type="number" class="form-control" name="validate-number1" id="validate-number1" placeholder="Quantity" [(ngModel)]="allcat.available_qty" required>
+            </div>
+          </div>
+          <div class="form-group">
+                <label for="validate-number">11. Low Stock</label>
+            <div class="input-group">
+                    <input type="number" class="form-control"  id="validate-number1" placeholder="Mention Low Stock Quantity" [(ngModel)]="allcat.low_stock" required>
+            </div>
+          </div>
+                      <button type="submit" class="btn btn-primary col-xs-12 submit" (click)="AddInventory(allcat.category_id,allcat.product_id,allcat.low_stock,allcat.available_qty,allcat.seasonal,allcat.pyg_price,allcat.selling_price,allcat.default_price,allcat.quantification,allcat.available_for_sale,allcat.sku)">Submit</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+</div>
+<app-footer></app-footer>
+

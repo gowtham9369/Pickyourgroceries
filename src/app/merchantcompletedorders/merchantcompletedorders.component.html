@@ -1,0 +1,146 @@
+<!-- Header -->
+<app-header></app-header>
+<!-- Sidebar Main menu     -->
+<app-mainmenu></app-mainmenu>     
+<!-- Pages -->
+<div class="app-content content">
+  <div class="content-wrapper">
+    <div class="content-header row">
+      <div class="content-header-left col-md-6 col-12 mb-2">
+        <h3 class="content-header-title">Merchent</h3>
+      </div>
+    </div>
+    <div class="content-detached content-right">
+      <div class="content-body">
+        <section class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">All Orders</h4>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
+              </div>
+              <div class="card-content">
+                <div class="card-body">
+                  <!-- Task List table -->
+                  <div class="table-responsive">
+                    <table id="project-bugs-list" class="table table-white-space table-bordered row-grouping display no-wrap icheck table-middle">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Order ID</th>
+                          <th>Amount</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><a  class="text-bold-600">#101</a></td>
+                          <td>
+                            <a  class="text-bold-600">PYG#ID21462890</a>
+                          </td>
+                          <td class="text-center">2300
+                          </td>
+                          <td>
+                            <span class="badge badge-success">Compeleted</span>
+                          </td>
+                          <td>
+                              <span class="dropdown">
+                                  <button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                  aria-expanded="false" class="btn btn-info"><i class="la la-cog"></i>View Orders </button>
+                              </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><a  class="text-bold-600">#220</a></td>
+                          <td>
+                            <a  class="text-bold-600">PYG#ID21462890</a>
+                          </td>
+                          <td class="text-center">650
+                          </td>
+                          <td>
+                            <span class="badge badge-success">Compeleted</span>
+                          </td>
+                          <td>
+                              <span class="dropdown">
+                                  <a routerLink="/Orderdetails"><button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false" class="btn btn-info"><i class="la la-cog"></i>View Orders </button></a>
+                              </span>
+                          </td>
+                        </tr>
+                        
+                        <tr>
+                          <td><a  class="text-bold-600">#124</a></td>
+                          <td>
+                            <a  class="text-bold-600">PYG#ID21462890</a>
+                          </td>
+                          <td class="text-center">1000
+                          </td>
+                          <td>
+                            <span class="badge badge-success">Compeleted</span>
+                          </td>
+                          <td>
+                              <span class="dropdown">
+                                  <a routerLink="/Orderdetails"><button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false" class="btn btn-info"><i class="la la-cog"></i>View Orders </button></a>
+                              </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><a  class="text-bold-600">#140</a></td>
+                          <td>
+                            <a  class="text-bold-600">PYG#ID21462890</a>
+                          </td>
+                          <td class="text-center"> 1200
+                          </td>
+                          <td>
+                            <span class="badge badge-success">Compeleted</span>
+                          </td>
+                          <td>
+                              <span class="dropdown">
+                                  <a routerLink="/Orderdetails"><button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false" class="btn btn-info"><i class="la la-cog"></i>View Orders </button></a>
+                              </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><a  class="text-bold-600">#261</a></td>
+                          <td>
+                            <a  class="text-bold-600">PYG#ID21462890</a>
+                          </td>
+                          <td class="text-center">500
+                          </td>
+                          <td>
+                           <span class="badge badge-success">Compeleted</span>
+                          </td>
+                          <td>
+                              <span class="dropdown">
+                                  <a routerLink="/Orderdetails"><button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false" class="btn btn-info"><i class="la la-cog"></i>View Orders </button></a>
+                              </span>
+                          </td>
+                        </tr>
+                    
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th>No</th>
+                          <th>Order ID</th>
+                          <th>Amount</th>
+                          <th>Status</th>
+                          <th>Action</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <app-salereportsidebar></app-salereportsidebar>
+  </div>
+</div>
+<app-footer></app-footer>

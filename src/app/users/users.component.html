@@ -1,0 +1,85 @@
+<!-- Header -->
+<app-header></app-header>
+<!-- Sidebar Main menu     -->
+<app-mainmenu></app-mainmenu>     
+<!-- pages    --> 
+  <div class="app-content content">
+    <div class="content-wrapper">
+      <div class="content-header row">
+        <div class="content-header-left col-md-6 col-12 mb-2">
+          <h3 class="content-header-title">All Users</h3>
+        </div>
+      </div>
+      <div class="content-detached content-right">
+        
+          <section class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-head">
+                      <div class="card-header">
+                        <h4 class="card-title">User List</h4>
+                        <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
+                      </div>
+                 </div>
+                <div class="card-content">
+                  <div class="card-body">
+                    <!-- Task List table -->
+                    <div class="table-responsive">
+                      <table class="table table-striped" [mfData]="records.users" #mf="mfDataTable" [mfRowsOnPage]="10">
+                        <thead>
+                        <tr>
+                            <th style="width: 20%">
+                                <mfDefaultSorter by="name">Name <span class="text-right-float"> <i class="fa fa-filter" aria-hidden="true"></i></span></mfDefaultSorter>
+                            </th>
+                            <th style="width: 50%">
+                                <mfDefaultSorter by="email">Email <span class="text-right-float"> <i class="fa fa-filter" aria-hidden="true"></i></span></mfDefaultSorter>
+                            </th>
+                            <th style="width: 10%">
+                                <mfDefaultSorter by="age">Phone <span class="text-right-float"> <i class="fa fa-filter" aria-hidden="true"></i></span></mfDefaultSorter>
+                            </th>
+                            <th style="width: 20%">
+                                <mfDefaultSorter by="city">Device <span class="text-right-float"> <i class="fa fa-filter" aria-hidden="true"></i></span></mfDefaultSorter>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let item of mf.data">
+                            <td style="width:20%;">
+                                <div class="media">
+                                    <div class="media-body media-middle">
+                                      <a  class="media-heading">{{item.name}}</a>
+                                    </div>
+                                  </div>
+                            </td>
+                            <td style="width:20%;">
+                                <div class="media">
+                                    <div class="media-body media-middle">
+                                      <a  class="media-heading">{{item.email}}</a>
+                                    </div>
+                                  </div>
+                            </td>
+                            <td style="width:20%;">{{item.mobile_num}}</td>
+                            <td style="width:20%;">{{item.os_type}}</td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="4">
+                                <mfBootstrapPaginator [rowsOnPageSet]="[25,50,100]"></mfBootstrapPaginator>
+                            </td>
+                        </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+     
+      </div>
+      
+    </div>
+  </div>
+<app-footer></app-footer>
+

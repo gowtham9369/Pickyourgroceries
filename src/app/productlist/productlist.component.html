@@ -1,0 +1,121 @@
+<!-- Header -->
+<app-header></app-header>
+<!-- Sidebar Main menu     -->
+<app-mainmenu></app-mainmenu>     
+<!-- pages    -->
+<div class="app-content content">
+    <div class="content-wrapper">
+      <div class="content-header row">
+        <div class="content-header-left col-md-6 col-12 mb-2">
+          <h3 class="content-header-title">List of Products</h3>
+        </div>
+      </div>
+      <div class="content-body">
+        <!-- Lists section start -->
+        <section id="lists">
+          
+          <div class="row match-height">
+            <div class="col-xl-8 col-lg-12">
+                <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title" id="list-editable">Product List</h4>
+                </div>
+                <div class="card-body">
+                    <div id="editable-list">
+                      <div class="table-responsive">
+                        <table class="table table-bordered table-lg text-center">
+                          <thead>
+                            <tr>
+                                 <th class="sort text-center" data-sort="no">No</th>
+                              <th class="sort text-center" data-sort="name">Product Img</th>
+                              <th class="sort text-center" data-sort="name">Product Name</th>
+                              <th class="sort text-center" data-sort="name">Quantification</th>
+                              <th class="sort text-center" data-sort="name">SKU(stock Keeping Unit)</th>
+                              <th colspan="1">Status</th>
+                            </tr>
+                          </thead>
+                          <!-- IMPORTANT, class="list" have to be at tbody -->
+                          <tbody class="list">
+
+
+                            <tr *ngFor="let item of categoryByProduct.products;index as i">
+                              <td class="no">{{i+1}}</td>
+                              <td class="name">         
+                              <div class="media-left pr-1">
+                                  <span class="avatar avatar-sm avatar-online rounded-circle">
+                                    <img src="{{item.product_image}}" alt="Image Not Found"><i></i></span>
+                                </div>
+                              </td>
+                              <td class="name">{{item.product_name}}</td>
+                              <td class="name">{{item.quantification}}</td>
+                              <td class="name">{{item.sku}}</td>
+                              <!-- <td class="edit">
+                                <button class="btn btn-outline-primary edit-item-btn">Edit</button>
+                              </td> -->
+                              <td class="remove">
+                                <button class="btn btn-outline-danger remove-item-btn" (click)="RemoveProduct(item.product_id)">Remove</button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div> 
+                  </div>
+                </div>
+              </div> 
+              
+            </div>
+            <div class="col-xl-4 col-lg-12">
+             <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title" id="list-data-attr">Add Product</h4>
+                </div>
+       
+                 
+                    <div id="data-attributes-list">
+                      <div class="table-responsive">
+                        <form id="login-form" style="padding: 20px;">
+                            <div class="form-group">
+                                <label for="email">Select category:</label>
+                                <select id="projectinput6" name="interested" class="form-control" [(ngModel)]="addProduct.category_id">
+                                    <option value="">Select Category</option>
+                                    <option [value]="cat.categoryId" *ngFor="let cat of categoryCount.categories">{{cat.categoryName}}</option>
+                                </select>
+                              </div>
+                              <div class="form-group">
+                                <input type="text" class="form-control" id="pwd" placeholder="Product Name" [(ngModel)]="addProduct.product_name" name="pwd">
+                              </div>
+
+                              <div class="form-group">
+                                  <!-- <input type="text" class="form-control" id="email" placeholder="Quantification" name="email" [(ngModel)]="addProduct.quantification"> -->
+                                  <select id="projectinput6s" name="interested" class="form-control" [(ngModel)]="addProduct.quantification">
+                                    <option value="">Select Quantification</option>
+                                    <option value="KG">Kg</option>
+                                    <option value="Units">Units</option>
+                                    <option value="Liters">Liters</option>
+                                </select>
+                                </div>
+                                <div class="form-group">
+                                  <input type="text" class="form-control" id="pwd" placeholder="Enter SKU" name="pwd" [(ngModel)]="addProduct.sku">
+                                </div>
+                                <div class="form-group">
+                                    <!-- <input type="file" class="form-control" [(ngModel)]="addProduct.product_img"> -->
+                                    <input id="file-upload" type="file"  (change)="upload($event)" />
+                                  </div>
+                                  <div class="form-group">
+                                    <textarea name="product_description" [(ngModel)]="addProduct.product_description" placeholder="Description of Product" style="width: 100%;height: 100px;"></textarea>
+                                    <!-- <input type="text" class="form-control" id="pwd" placeholder="Enter password" name="pwd"  [(ngModel)]="addProduct.product_description"> -->
+                                  </div>
+                                  <button type="submit" class="btn btn-primary" [disabled]="!selectedProduct" (click)="uploadProduct()">
+                                      <i class="la la-check-square-o"></i> Submit
+                                    </button>
+                        </form>
+                      </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+<app-footer></app-footer>

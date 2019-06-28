@@ -1,0 +1,293 @@
+<!-- Header -->
+<app-header></app-header>
+<!-- Sidebar Main menu     -->
+<app-mainmenu></app-mainmenu>     
+<!-- Pages -->
+<div class="app-content content">
+  <div class="content-wrapper">
+    <div class="content-header row">
+      <div class="content-header-left col-md-6 col-12 mb-2">
+        <h3 style="font-size: 24px!important;">Merchant Name: {{merchantname}}</h3> 
+        <h3 class="content-header-title">Individual Merchent Order Details</h3>
+      </div>
+      <div class="content-header-left col-md-6 col-12 mb-2">
+          <button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" class="btn btn-info" [routerLink]="['/Getinventory']" style="float: right;"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> View Inventory</button>
+        </div>
+        
+      <div class="content-detached content-right">
+        <div class="content-body">
+          <section class="row">
+            <div class="container">
+              <div class="vertical-tabs">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#pag1" role="tab" aria-controls="home">All Orders</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#pag2" role="tab" aria-controls="profile">Completed Orders</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#pag3" role="tab" aria-controls="messages">Pending Orders</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#pag4" role="tab" aria-controls="settings">Cancelled Orders</a>
+                  </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="pag1" role="tabpanel">
+                    <div class="content-body">
+                      <section class="row">
+                        <div class="col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h4 class="card-title">All Orders</h4>
+                              <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
+                            </div>
+                            <div class="card-content">
+                              <div class="card-body">
+                                <!-- Task List table -->
+                                <div class="table-responsive">
+                                  <table id="project-bugs-list" class="table table-white-space table-bordered row-grouping display no-wrap icheck table-middle">
+                                    <thead>
+                                      <tr>
+                                        <th>No</th>
+                                        <th>Order ID</th>
+                                        <th class="centerr">Amount</th>
+                                        <th class="centerr">Status</th>
+                                        <th class="centerr">View</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor="let item of listOfOrders.allOrders;index as i">
+                                        <td><a  class="text-bold-600">{{i+1}}</a></td>
+                                        <td>
+                                          <a  class="text-bold-600">{{item.tracking_id}}</a>
+                                        </td>
+                                        <td class="text-center">£ {{item.bill_amount}}
+                                        </td>
+                                        <td class="centerr">
+                                          <span class="badge badge-info">{{item.order_status}}</span>
+                                        </td>
+                                        <td class="centerr">
+                                          <span class="dropdown">
+                                            <button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false" class="btn btn-info" (click)="getinvoice(item.order_id)" [routerLink]="['/Orderdetails']"><i class="la la-cog"></i> Orders </button>
+                                          </span>
+                                        </td>
+                                      </tr>   
+                                    </tbody>
+                                    <!-- <tfoot>
+                                      <tr>
+                                        <th>No</th>
+                                        <th>Order ID</th>
+                                        <th class="centerr">Amount</th>
+                                        <th>Status</th>
+                                        <th>View</th>
+                                      </tr>
+                                    </tfoot> -->
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="pag2" role="tabpanel">
+                    <div class="content-right">
+                      <div class="content-body">
+                        <section class="row">
+                          <div class="col-12">
+                            <div class="card">
+                              <div class="card-header">
+                                <h4 class="card-title">All Orders</h4>
+                                <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
+                              </div>
+                              <div class="card-content">
+                                <div class="card-body">
+                                  <!-- Task List table -->
+                                  <div class="table-responsive">
+                                    <table id="project-bugs-list" class="table table-white-space table-bordered row-grouping display no-wrap icheck table-middle">
+                                      <thead>
+                                        <tr>
+                                          <th>No</th>
+                                          <th>Order ID</th>
+                                          <th class="centerr">Amount</th>
+                                          <th class="centerr">Status</th>
+                                          <th class="centerr">View</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr *ngFor="let item of listOfOrders.completed;index as i">
+                                          <td><a  class="text-bold-600">{{i+1}}</a></td>
+                                          <td>
+                                            <a  class="text-bold-600">{{item.tracking_id}}</a>
+                                          </td>
+                                          <td class="text-center centerr">£ {{item.bill_amount}}
+                                          </td>
+                                          <td class="centerr">
+                                              <span class="badge badge-warning"> {{item.order_status}} </span>
+                                          </td>
+                                          <td class="centerr">
+                                              <span class="dropdown">
+                                                <button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false" class="btn btn-info" (click)="getinvoice(item.order_id)" [routerLink]="['/Orderdetails']"><i class="la la-cog"></i>View Orders </button>
+                                              </span>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                      <!-- <tfoot>
+                                        <tr>
+                                          <th>No</th>
+                                          <th>Order ID</th>
+                                          <th>Amount</th>
+                                          <th>Status</th>
+                                          <th>Action</th>
+                                        </tr>
+                                      </tfoot> -->
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="pag3" role="tabpanel">
+                    <div class="content-right">
+                      <div class="content-body">
+                        <section class="row">
+                          <div class="col-12">
+                            <div class="card">
+                              <div class="card-header">
+                                <h4 class="card-title">All Orders</h4>
+                                <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
+                              </div>
+                              <div class="card-content">
+                                <div class="card-body">
+                                  <!-- Task List table -->
+                                  <div class="table-responsive">
+                                    <table id="project-bugs-list" class="table table-white-space table-bordered row-grouping display no-wrap icheck table-middle">
+                                      <thead>
+                                        <tr>
+                                          <th>No</th>
+                                          <th>Order ID</th>
+                                          <th class="centerr">Amount</th>
+                                          <th class="centerr">Status</th>
+                                          <th class="centerr">View</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr *ngFor="let item of listOfOrders.pending;index as i">
+                                          <td><a  class="text-bold-600">{{i+1}}</a></td>
+                                          <td>
+                                            <a  class="text-bold-600">{{item.tracking_id}}</a>
+                                          </td>
+                                          <td class="text-center centerr">£ {{item.bill_amount}}
+                                          </td>
+                                          <td class="centerr">
+                                            <span class="badge badge-success">{{item.order_status}}</span>
+                                          </td>
+                                          <td>
+                                              <span class="dropdown">
+                                                <button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false" class="btn btn-info" (click)="getinvoice(item.order_id)" [routerLink]="['/Orderdetails']"><i class="la la-cog"></i>View Orders </button>
+                                              </span>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                      <!-- <tfoot>
+                                        <tr>
+                                          <th>No</th>
+                                          <th>Order ID</th>
+                                          <th>Amount</th>
+                                          <th>Status</th>
+                                          <th>Action</th>
+                                        </tr>
+                                      </tfoot> -->
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="pag4" role="tabpanel">
+                    <div class="content-right">
+                      <div class="content-body">
+                        <section class="row">
+                          <div class="col-12">
+                            <div class="card">
+                              <div class="card-header">
+                                <h4 class="card-title">All Orders</h4>
+                                <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
+                              </div>
+                              <div class="card-content">
+                                <div class="card-body">
+                                  <!-- Task List table -->
+                                  <div class="table-responsive">
+                                    <table id="project-bugs-list" class="table table-white-space table-bordered row-grouping display no-wrap icheck table-middle">
+                                      <thead>
+                                        <tr>
+                                          <th>No</th>
+                                          <th>Order ID</th>
+                                          <th class="centerr">Amount</th>
+                                          <th class="centerr">Status</th>
+                                           <th class="centerr">View</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr *ngFor="let item of listOfOrders.cancelled;index as i">
+                                          <td><a  class="text-bold-600">{{i+1}}</a></td>
+                                          <td>
+                                            <a  class="text-bold-600">{{item.tracking_id}}</a>
+                                          </td>
+                                          <td class="text-center centerr">£ {{item.bill_amount}}
+                                          </td>
+                                          <td class="centerr">
+                                              <span class="badge badge-info">{{item.order_status}}</span>
+                                          </td>
+                                          <td class="centerr">
+                                              <span class="dropdown">
+                                                <button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false" class="btn btn-info" (click)="getinvoice(item.order_id)" [routerLink]="['/Orderdetails']"><i class="la la-cog"></i>View Orders </button>
+                                              </span>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                      <!-- <tfoot>
+                                        <tr>
+                                          <th>No</th>
+                                          <th>Order ID</th>
+                                          <th>Amount</th>
+                                          <th>Status</th>
+                                          <th>Action</th>
+                                        </tr>
+                                      </tfoot> -->
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>          
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,231 @@
+<!-- Header -->
+<app-header></app-header>
+<!-- Sidebar Main menu     -->
+<app-mainmenu></app-mainmenu>     
+<!-- pages    --> 
+  <div class="app-content content">
+      <div class="content-wrapper">
+        <div class="content-header row">
+          <div class="content-header-left col-md-6 col-12 mb-2">
+            <h3 class="content-header-title">All Categories</h3>
+          </div>
+        </div>
+        <div class="content-body">
+          <!-- Minimal statistics section start -->
+          <section id="minimal-statistics">
+            <div class="row">
+              <div class="col-xl-3 col-lg-6 col-12" *ngFor="let categories of categoryCount.categories">
+                <div class="card">
+                  <a (click)="getCategoryId(categories.categoryId)">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <span ><img src="{{categories.categoryImage}}"></span>
+                        </div>
+                        <div class="media-body text-right">
+                          <h1>{{categories.productCount}}</h1>
+                          <span>{{categories.categoryName}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    </a>
+                </div>
+              </div>
+              <!-- <div class="col-xl-3 col-lg-6 col-12">
+                  <div class="card"><a routerLink="/ProductList">
+                    <div class="card-content">
+                      <div class="card-body">
+                        <div class="media d-flex">
+                          <div class="align-self-center">
+                              <span ><img src="assets/cheese.png"></span>
+                          </div>
+                          <div class="media-body text-right">
+                            <h1>23</h1>
+                            <span>Dairy, Eggs & Cheese</span>
+                          </div>
+                        </div>
+                      </div>
+                      </div></a>
+                  </div>
+                </div>
+              <div class="col-xl-3 col-lg-6 col-12">
+                  <div class="card"><a routerLink="/ProductList">
+                    <div class="card-content">
+                      <div class="card-body">
+                        <div class="media d-flex">
+                          <div class="align-self-center">
+                              <span ><img src="assets/sandwich.png"></span>
+                          </div>
+                          <div class="media-body text-right">
+                            <h1>56</h1>
+                            <span>Bread & Bakery</span>
+                          </div>
+                        </div>
+                      </div>
+                      </div></a>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12">
+                    <div class="card"><a routerLink="/ProductList">
+                      <div class="card-content">
+                        <div class="card-body">
+                          <div class="media d-flex">
+                            <div class="align-self-center">
+                                <span ><img src="assets/frozen.png"></span>
+                            </div>
+                            <div class="media-body text-right">
+                              <h1>23</h1>
+                              <span>Frozen Foods</span>
+                            </div>
+                          </div>
+                        </div>
+                        </div></a>
+                    </div>
+              </div>              
+              <div class="col-xl-3 col-lg-6 col-12">
+                <div class="card"><a routerLink="/ProductList">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                            <span ><img src="assets/vegetable.png"></span>
+                        </div>
+                        <div class="media-body text-right">
+                          <h1>20</h1>
+                          <span>Fruits & Vegetables</span>
+                        </div>
+                      </div>
+                    </div>
+                    </div></a>
+                </div>
+              </div> 
+              <div class="col-xl-3 col-lg-6 col-12">
+                  <div class="card"><a routerLink="/ProductList">
+                    <div class="card-content">
+                      <div class="card-body">
+                        <div class="media d-flex">
+                          <div class="align-self-center">
+                              <span ><img src="assets/cookies.png"></span>
+                          </div>
+                          <div class="media-body text-right">
+                            <h1>64</h1>
+                            <span>Cookies, Snacks & Candy</span>
+                          </div>
+                        </div>
+                      </div>
+                      </div></a>
+                  </div>
+                </div>   
+              <div class="col-xl-3 col-lg-6 col-12">
+                <div class="card"><a routerLink="/ProductList">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                            <span ><img src="assets/grains.png"></span>
+                        </div>
+                        <div class="media-body text-right">
+                          <h1>20</h1>
+                          <span>Grains, Pasta & Sides</span>
+                        </div>
+                      </div>
+                    </div>
+                    </div></a>
+                </div>
+              </div> 
+              <div class="col-xl-3 col-lg-6 col-12">
+                <div class="card"><a routerLink="/ProductList">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                            <span ><img src="assets/meat.png"></span>
+                        </div>
+                        <div class="media-body text-right">
+                          <h1>20</h1>
+                          <span>Meat & Seafood</span>
+                        </div>
+                      </div>
+                    </div>
+                    </div></a>
+                </div>
+              </div>          -->
+            </div>
+          </section>
+          <section id="minimal-statistics" style="margin-bottom: 3rem;">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h4 class="card-title" id="hidden-label-basic-form">Add Category to Master Inventory</h4>
+                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                      </div>
+                      <div class="card-content collpase show">
+                        <div class="card-body">
+                          <form class="form">
+                            <div class="form-body">
+                             
+                              <div class="row">
+                                <div class="form-group col-12 mb-2">
+                                  <label class="sr-only" for="projectinput5">Category Name</label>
+                                  <input type="text" id="projectinput5" class="form-control" [(ngModel)]="addcategories.category_name" placeholder="Category Name"
+                                  name="company" required>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="form-group col-12 mb-2">
+                                  <label class="sr-only">Select Category Image</label>
+                                  <label for="file-upload" class="custom-file-upload">
+                                      <i class="fa fa-cloud-upload"></i> Category Image
+                                  </label>
+                                  <input id="file-upload" type="file"  (change)="upload($event)"  [(ngModel)]="addcategories.category_img"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-actions">
+                              <button type="submit" class="btn btn-primary" [disabled]="!selectedImage" (click)="uploader(addcategories.category_name)">
+                                <i class="la la-check-square-o"></i> Submit
+                              </button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              <!-- <div class="col-md-6">
+                <div class="card">
+                  <div class="card-header">
+                    <h4 class="card-title" id="hidden-label-basic-form">Bulk Upload to Master Inventory</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                  </div>
+                  <div class="card-content collpase show">
+                    <div class="card-body">
+                      <form class="form">
+                        <div class="form-body">
+                          <div class="row">
+                            <div class="form-group col-12 mb-2">
+                              <label class="sr-only">Select File</label>
+                              <label for="file-upload" class="custom-file-upload">
+                                  <i class="fa fa-cloud-upload"></i> Upload ExcelSheet Document
+                              </label>
+                              <input id="file-upload" type="file"  (change)="selectFile($event)"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-actions">
+                          <button class="btn btn-primary" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>   -->
+            </div>
+          </section>  
+          <!-- // Minimal statistics section end -->
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>

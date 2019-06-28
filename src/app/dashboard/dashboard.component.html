@@ -1,0 +1,105 @@
+<!-- Header -->
+<app-header></app-header>
+<!-- Sidebar Main menu     -->
+<app-mainmenu></app-mainmenu>     
+<!-- pages    -->
+<div class="app-content content">
+  <div class="content-wrapper">
+    
+      <div class="content-body">
+      <!-- eCommerce statistic -->
+      <div class="row">
+          <div class="col-xl-4 col-lg-6 col-12">
+          <div class="card pull-up">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                      <h1 class="success"><strong>{{getcount.userCount}}</strong></h1>
+                    <h4>Total User</h4>
+                  </div>
+                  <div>
+                    <i class="fa fa-user-plus success font-large-2 float-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-12">
+          <div class="card pull-up">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                    <h1 class="info"><strong>{{getcount.merchantCount}}</strong></h1>
+                    <h4>Total Merchant </h4>
+                  </div>
+                  <div>
+                    <i class="fa fa-user-plus info font-large-2 float-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="col-xl-4 col-lg-6 col-12">
+          <div class="card pull-up">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                      <h1 class="warning"><strong>{{getcount.orderCount}}</strong></h1>
+                    <h4>Total Orders</h4>
+                  </div>
+                  <div>
+                    <i class="fa fa-shopping-cart warning font-large-2 float-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/ eCommerce statistic -->
+    </div> 
+    <div class="content-body">
+      <!-- Google pie charts section start -->
+      <section id="google-pie-charts">
+       
+        <div class="row">
+          <!-- Pie Diff Radius Chart -->
+          <div class="col-md-12 col-sm-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">PYG Sales Reports </h4>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                    <li><a data-action="close"><i class="ft-x"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-body col-md-9 col-sm-9">
+                  <canvas baseChart
+                  [data]="pieChartData"
+                  [labels]="pieChartLabels"
+                  [chartType]="pieChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Diff opacity Charts -->
+      </section>
+      <!-- // Google pie charts section end -->
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

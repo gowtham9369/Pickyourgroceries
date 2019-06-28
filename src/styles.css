@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #F4F5FA;
+}
+.navigation {
+    font-size: 0.9rem!important;
+}
+.main-menu li.nav-item:hover {
+    margin-left: 5px;
+    border-right: 2px solid #1E9FF2;
+}
+.content .content-wrapper {
+    padding: 1.5rem;
+}
+.btn-info {
+    border-color: #168DEE!important;
+    background-color: #1E9FF2!important;
+    color: #FFF;
+}
+.btn-info:hover {
+    border-color: #1A97F0!important;
+    background-color: #40ADF4!important;
+    color: #FFF!important;
+}
+ul.pagination.pull-right.float-sm-right:before {
+    content: "Row Per Page :";
+    margin-top: 6px;
+    margin-right: 10px;
+}
+li.nav-item {
+    cursor: pointer;
+}
+h3{
+    font-size: 1rem!important;
+}
+.main-menu.menu-light .navigation li a {
+    color: #000000!important;
+    transition: all .2s ease;
+}
+.card .card-title {
+    font-weight: 500;
+    letter-spacing: .05rem;
+    font-size: 1rem!important;
+}

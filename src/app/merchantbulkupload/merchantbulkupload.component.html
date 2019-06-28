@@ -1,0 +1,135 @@
+<!-- Header -->
+<app-header></app-header>
+<!-- Sidebar Main menu     -->
+<app-mainmenu></app-mainmenu>     
+<!-- pages    --> 
+  <div class="app-content content">
+      <div class="content-wrapper">
+        <div class="content-header row">
+          <div class="content-header-left col-md-6 col-12 mb-2">
+            <h3 class="content-header-title">Inventory Update</h3>
+          </div>
+        </div>
+        <div class="content-body">
+          <!-- Minimal statistics section start -->
+          <section id="minimal-statistics">
+            <div class="row">
+            </div>
+          </section>
+          <section id="minimal-statistics" style="margin-bottom: 3rem;">
+            <div class="row">
+              <div class="row">
+                  <div class="content-header-left col-md-12 col-12 mb-2">
+                      <button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" class="btn btn-info" [routerLink]="['/Getinventory']" style="float: left;margin-top: 20px;">Back</button>
+                   </div>
+              </div>
+              <div class="col-md-8">
+                <div class="card">
+                  <div class="card-header">
+                    <h4 class="card-title" id="hidden-label-basic-form">Bulk Upload for Inventory</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                  </div>
+                  <div class="card-content collpase show">
+                    <div class="card-body">
+                      <form class="form">
+                        <div class="form-body">
+                          <div class="row">
+                            <div class="form-group col-12 mb-2">
+                              <label class="sr-only">Select File</label>
+                              <label for="file-upload" class="custom-file-upload">
+                                  <i class="fa fa-cloud-upload"></i> Upload
+                              </label>
+                              <input id="file-upload" type="file"  (change)="upload($event)" [(ngModel)]="inventory.fileName"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-actions">
+                          <button class="btn btn-primary" [disabled]="!selectedImage" (click)="uploader(inventory.fileName)" style="float: right;margin-bottom: 20px;">Upload</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+            </div>
+            <div class="row" *ngIf="show_table" style="margin-left: 60px;">
+              <div class="card-content">
+                <div class="card-body" style="background: #fff;border-radius: 5px;box-shadow: 0 1px 15px 1px rgba(62,57,107,.07);">
+                  <!-- Task List table -->
+                  <div class="table-responsive">
+                      <div class="card card-header" style="margin-bottom: 0!important;">
+                          <h4 class="card-title" id="hidden-label-basic-form">Unuploaded Entries</h4>
+                        </div>
+                      <table class="table table-bordered table-lg text-center">
+                          <thead>
+                            <tr>
+                              <th class="sort text-center" data-sort="no">No</th>
+                              <th class="sort text-center" data-sort="name">Product Name</th>
+                              <th class="sort text-center" data-sort="name">Category</th>
+                              <th class="sort text-center" data-sort="name">SKU</th>
+                              <th class="sort text-center" data-sort="name">Availability</th>
+                              <th class="sort text-center" data-sort="name">Quantification</th>
+                              <th class="sort text-center" data-sort="name">Default Price</th>
+                              <th class="sort text-center" data-sort="name">Selling Price</th>
+                              <th class="sort text-center" data-sort="name">Pyg Price</th>
+                              <th class="sort text-center" data-sort="name">Seasonal</th>
+                              <th class="sort text-center" data-sort="name">Low Stock</th>
+                              <th class="sort text-center" data-sort="name">In Stock</th>
+                            </tr>
+                          </thead>
+                          <!-- IMPORTANT, class="list" have to be at tbody -->
+                          <tbody class="list">
+
+
+                            <tr *ngFor="let item of unUploadedEntries12.entries;index as i">
+                              <td>{{i+1}}</td>
+                                <td>
+                                    <div class="media">
+                                        <div class="media-body media-middle">
+                                          <a  class="media-heading">{{item.Product}}</a>
+                                        </div>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="media">
+                                        <div class="media-body media-middle">
+                                          <a  class="media-heading">{{item.Category}}</a>
+                                        </div>
+                                      </div>
+                                </td>
+                                <td >{{item.SKU}}</td>
+                                <td >{{item.Availability}}</td>
+                                <td >{{item.Quantification}}</td>
+                                <td >{{item.Default_price}}</td>
+                                <td >{{item.Cost}}</td>
+                                <td >{{item.Price}}</td>
+                                <td >{{item.Seasonal}}</td>
+                                <td >{{item.Low_stock}}</td>
+                                <td >{{item.In_stock}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" *ngIf="show_table_pending_order" style="margin-left: 60px;">
+                <div class="card-content">
+                  <div class="card-body" style="background: #fff;border-radius: 5px;box-shadow: 0 1px 15px 1px rgba(62,57,107,.07);">
+                      <div class="card card-header" style="margin-bottom: 0!important;">
+                          <h4 class="card-title" id="hidden-label-basic-form">Pending Order Products</h4>
+                        </div>
+                    <!-- Task List table -->
+                    <div class="table-responsive">
+                      <p *ngFor="let pending of message1.pending_order_products">&nbsp;{{pending}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </section>  
+          <!-- // Minimal statistics section end -->
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
